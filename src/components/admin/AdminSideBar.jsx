@@ -81,6 +81,7 @@ class AdminSideBar extends Component {
                     ? "primary-color-text my-family-bold nav-link-icon font-weight-500 mt-5 f-14"
                     : "text-black my-family-bold nav-link-icon font-weight-500 mt-5 f-14"
                 }
+                to="/"
               >
                 USERS
               </Link>
@@ -206,7 +207,10 @@ class AdminSideBar extends Component {
                 onClick={() => this.openadminclassroom()}
                 className={
                   this.state.adminclassroomtab ||
-                  page === "admincourseworkstats"
+                  page === "admincourseworkstats" ||
+                  page === "admincoursedetailstats" ||
+                  page === "adminpublishedcourseworks" ||
+                  page === "admincreatecoursework"
                     ? "primary-color-text my-family-bold nav-link-icon font-weight-500 mt-5 f-14"
                     : "text-black my-family-bold nav-link-icon font-weight-500 mt-5 f-14"
                 }

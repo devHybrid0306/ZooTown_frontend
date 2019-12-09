@@ -15,7 +15,7 @@ class Footer extends Component {
       // <Footer>
       <div className="Footer">
         <footer>
-          {page != "coursepage" ? (
+          {page != "coursepage" && page != "admineditcoursepage" ? (
             <div className="row link_row">
               <div className="col col-xs-6">
                 <p className="footer_section_title">About Us</p>

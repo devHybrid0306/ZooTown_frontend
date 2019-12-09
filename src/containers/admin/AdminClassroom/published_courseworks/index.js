@@ -87,9 +87,11 @@ class AdminPublishedCourseWorks extends React.Component {
                           COURSEWORK STATS
                         </div>
                       </Link>
-                      <div className="adminclassroom-published-listtitle-itemoff">
-                        CREATE A COURSEWORK
-                      </div>
+                      <Link to="/admin-classroom-createcoursework">
+                        <div className="adminclassroom-published-listtitle-itemoff">
+                          CREATE A COURSEWORK
+                        </div>
+                      </Link>
                     </div>
                     <div className="adminclassroom-published-rowtitle mt-5 mr-5">
                       <div className="adminclassroom-published-rowtitle-label ml-3">

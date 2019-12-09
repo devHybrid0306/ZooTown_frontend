@@ -30,7 +30,10 @@ import {
   StudentChangePass
 } from "./index";
 import AdminCourseWorkStats from "./../containers/admin/AdminClassroom/coursework_stats";
+import AdminCourseDetailStats from "./../containers/admin/AdminClassroom/coursedetail_stats";
 import AdminPublishedCourseWorks from "./../containers/admin/AdminClassroom/published_courseworks";
+import AdminCreateCourseWork from "./../containers/admin/AdminClassroom/create_coursework";
+import AdminEditCoursePage from "./../containers/admin/AdminClassroom/main_course/EditCoursePage";
 import CoursePage from "./classroom/CoursePage";
 import { Home } from "./index";
 import AdminApp from "../containers/admin/App";
@@ -93,10 +96,26 @@ class App extends Component {
             )}
           />
           <Route
+            path="/admin-classroom-coursedetailstats"
+            component={() => (
+              <AdminCourseDetailStats page="admincoursedetailstats" />
+            )}
+          />
+          <Route
             path="/admin-classroom-publishedcourseworks"
             component={() => (
               <AdminPublishedCourseWorks page="adminpublishedcourseworks" />
             )}
+          />
+          <Route
+            path="/admin-classroom-createcoursework"
+            component={() => (
+              <AdminCreateCourseWork page="admincreatecoursework" />
+            )}
+          />
+          <Route
+            path="/admin-classroom-editcoursepage"
+            component={() => <AdminEditCoursePage page="admineditcoursepage" />}
           />
           <Route exact path="/" component={() => <Home page="students" />} />
           <Route path="/students" component={() => <Home page="students" />} />
