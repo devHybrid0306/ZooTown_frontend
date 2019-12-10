@@ -204,12 +204,12 @@ class Footer extends Component {
               )}
 
               {page === "students" || page === "employer" ? (
-                <Link className="bottom-tab w-25">
+                <Link className="bottom-tab w-25" to="/">
                   <i className="fa fa-diamond text-white mt-2"></i>
                   <span className="linebreak text-white f-10">Candidate</span>
                 </Link>
               ) : (
-                <Link className="bottom-tab w-25">
+                <Link className="bottom-tab w-25" to="/">
                   <i className="fa fa-comments-o text-white mt-2"></i>
                   <span className="linebreak text-white f-10">Chat</span>
                 </Link>

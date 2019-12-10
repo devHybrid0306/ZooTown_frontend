@@ -1,4 +1,5 @@
 import React from "react";
+import UploadImg from "./../../../components/admin/classroom/upload_image";
 import "./style.scss";
 
 function TeacherFooter() {
@@ -6,14 +7,25 @@ function TeacherFooter() {
     <div className="admin-teacherfooter">
       <div className="admin-teacherfooter-teacherlabel">Teacher</div>
       <div className="admin-teacherfooter-main">
-        <div className="admin-teacherfooter-photo">Photo</div>
+        <div>
+          <UploadImg />
+        </div>
         <div className="admin-teacherfooter-infoContainer">
-          <div className="admin-teacherfooter-infoContainer-name">
-            Teacher Name
+          <div>
+            <input
+              type="text"
+              className="admin-teacherfooter-infoContainer-name"
+              placeholder="
+            Teacher Name"
+            ></input>
           </div>
-          <div className="admin-teacherfooter-infoContainer-intro">
-            Teacher Info
-          </div>
+
+          <textarea
+            className="admin-teacherfooter-infoContainer-intro"
+            placeholder="TEACHER INTRO-Please Add One Line"
+            cols="40"
+            rows="4"
+          ></textarea>
         </div>
       </div>
     </div>

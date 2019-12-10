@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 function NewCourseListItem() {
@@ -32,9 +33,11 @@ function NewCourseListItem() {
             ACTION
           </div>
           <div className="adminclassroom-createcourse-item-action">
-            <div className="adminclassroom-createcourse-item-create">
-              Create Course
-            </div>
+            <Link to="/admin-classroom-editcoursepage">
+              <div className="adminclassroom-createcourse-item-create">
+                Create Course
+              </div>
+            </Link>
             <div className="adminclassroom-createcourse-item-publish">
               Publish Course
             </div>

@@ -143,64 +143,27 @@ class AdminEditCoursePage3 extends React.Component {
                           <div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <div className="course3-question-section-title">
-                            Question1
-                          </div>
-                          <div className="course3-question-section-quiz">
-                            How many people have been apart of this project?
-                          </div>
-                          <div className="course3-question-section-desp">
-                            Please choose one answer
-                          </div>
-                          <div>
-                            <div className="course3-question-section-answer">
-                              <input type="checkbox" />
-                              <lable className="pl-3">
-                                How many people have been apart of this project?
-                              </lable>
-                            </div>
-                            <div className="course3-question-section-answer">
-                              <input type="checkbox" />
-                              <lable className="pl-3">
-                                How many people have been apart of this project?
-                              </lable>
-                            </div>
-                            <div className="course3-question-section-answer">
-                              <input type="checkbox" />
-                              <lable className="pl-3">
-                                How many people have been apart of this project?
-                              </lable>
-                            </div>
-                            <div className="course3-question-section-answer">
-                              <input type="checkbox" />
-                              <lable className="pl-3">
-                                How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                           </div>
                         </div>
@@ -217,27 +180,27 @@ class AdminEditCoursePage3 extends React.Component {
                           <div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                           </div>
                         </div>
@@ -254,27 +217,64 @@ class AdminEditCoursePage3 extends React.Component {
                           <div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
                             </div>
                             <div className="course3-question-section-answer">
                               <input type="checkbox" />
-                              <lable className="pl-3">
+                              <label className="pl-3">
                                 How many people have been apart of this project?
-                              </lable>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="course3-question-section-title">
+                            Question1
+                          </div>
+                          <div className="course3-question-section-quiz">
+                            How many people have been apart of this project?
+                          </div>
+                          <div className="course3-question-section-desp">
+                            Please choose one answer
+                          </div>
+                          <div>
+                            <div className="course3-question-section-answer">
+                              <input type="checkbox" />
+                              <label className="pl-3">
+                                How many people have been apart of this project?
+                              </label>
+                            </div>
+                            <div className="course3-question-section-answer">
+                              <input type="checkbox" />
+                              <label className="pl-3">
+                                How many people have been apart of this project?
+                              </label>
+                            </div>
+                            <div className="course3-question-section-answer">
+                              <input type="checkbox" />
+                              <label className="pl-3">
+                                How many people have been apart of this project?
+                              </label>
+                            </div>
+                            <div className="course3-question-section-answer">
+                              <input type="checkbox" />
+                              <label className="pl-3">
+                                How many people have been apart of this project?
+                              </label>
                             </div>
                           </div>
                         </div>

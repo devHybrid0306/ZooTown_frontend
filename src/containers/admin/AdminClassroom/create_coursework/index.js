@@ -67,7 +67,7 @@ class AdminCreateCoursework extends React.Component {
     const children = [];
     console.log(this.state.numChildren);
     for (var i = 0; i < this.state.numChildren; i += 1) {
-      children.push(<NewCourseListItem />);
+      children.push(<NewCourseListItem key={i} />);
     }
 
     return (

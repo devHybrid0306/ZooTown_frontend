@@ -8,6 +8,7 @@ $fontFamily: "Helvetica Neue";
   background-color: #f8f8f8;
   box-shadow: 0 8px 2px -2px #979797;
   padding-left: 25px;
+  padding-right: 25px;
   justify-content: center;
 
   margin-bottom: 50px;
@@ -33,12 +34,22 @@ $fontFamily: "Helvetica Neue";
     display: flex;
     flex-direction: column;
     margin-left: 25px;
+    width: 100%;
     &-name {
       color: #f8d123;
       font-size: 20px;
       line-height: 25px;
       font-family: $fontFamily;
       font-weight: bold;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 40%;
+      &::placeholder {
+        color: #f8d123;
+        opacity: 0.3;
+        text-transform: uppercase;
+      }
+
       margin-bottom: 10px;
     }
     &-intro {
@@ -47,6 +58,14 @@ $fontFamily: "Helvetica Neue";
       font-weight: 500;
       line-height: 25px;
       font-family: $fontFamily;
+      padding-left: 10px;
+      padding-right: 10px;
+      border: none;
+      resize: none;
+      width: 70%;
+      &::placeholder {
+        opacity: 0.3;
+      }
     }
   }
 }

@@ -1,7 +1,6 @@
 {
   "name": "zootown",
   "version": "0.1.0",
-  "homepage": "http://devHybrid0306.github.io/ZooTown_frontend",
   "private": true,
   "dependencies": {
     "antd": "^3.25.1",
