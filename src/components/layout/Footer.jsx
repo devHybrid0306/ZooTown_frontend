@@ -91,11 +91,15 @@ class Footer extends Component {
                 </ul>
               </div>
             </div>
-          ) : (
+          ) : page == "admineditcoursepage" ||
+            page == "admineditcoursepage2" ||
+            page == "admineditcoursepage3" ? (
             <div>
               <TeacherFooter></TeacherFooter>
               <div className="link_onlyborder"></div>
             </div>
+          ) : (
+            <div className="link_onlyborder"></div>
           )}
           <div className="row copyright_row">
             <div className="col-sm-12 col-md-4">
