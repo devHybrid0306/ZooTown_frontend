@@ -34,6 +34,8 @@ import AdminCourseDetailStats from "./../containers/admin/AdminClassroom/coursed
 import AdminPublishedCourseWorks from "./../containers/admin/AdminClassroom/published_courseworks";
 import AdminCreateCourseWork from "./../containers/admin/AdminClassroom/create_coursework";
 import AdminEditCoursePage from "./../containers/admin/AdminClassroom/main_course/EditCoursePage";
+import AdminEditCoursePage2 from "./../containers/admin/AdminClassroom/main_course/EditCoursePage2";
+import AdminEditCoursePage3 from "./../containers/admin/AdminClassroom/main_course/EditCoursePage3";
 import CoursePage from "./classroom/CoursePage";
 import { Home } from "./index";
 import AdminApp from "../containers/admin/App";
@@ -116,6 +118,18 @@ class App extends Component {
           <Route
             path="/admin-classroom-editcoursepage"
             component={() => <AdminEditCoursePage page="admineditcoursepage" />}
+          />
+          <Route
+            path="/admin-classroom-editcoursepage2"
+            component={() => (
+              <AdminEditCoursePage2 page="admineditcoursepage2" />
+            )}
+          />
+          <Route
+            path="/admin-classroom-editcoursepage3"
+            component={() => (
+              <AdminEditCoursePage3 page="admineditcoursepage3" />
+            )}
           />
           <Route exact path="/" component={() => <Home page="students" />} />
           <Route path="/students" component={() => <Home page="students" />} />

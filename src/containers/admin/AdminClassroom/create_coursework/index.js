@@ -29,18 +29,21 @@ import {
 import { FaSearch } from "react-icons/fa";
 import classnames from "classnames";
 import { graphql } from "react-apollo";
-import StatsCourseList from "./../../../../components/admin/classroom/stats_course_list/list";
+import NewCourseListItem from "./../../../../components/admin/classroom/create_course_list/item";
 import "./style.scss";
 
 class AdminCreateCoursework extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handleConfirmEmail = this.handleConfirmEmail.bind(this);
     this.handleConfirmPassword = this.handleConfirmPassword.bind(this);
+    this.state = {
+      numChildren: 0
+    };
   }
+
   handleEmail(e) {
     console.log(e.target.value);
   }
@@ -53,8 +56,20 @@ class AdminCreateCoursework extends React.Component {
   handleConfirmPassword(e) {
     console.log(e.target.value);
   }
+  onAddCourseRow = () => {
+    this.setState({
+      numChildren: this.state.numChildren + 1
+    });
+  };
+
   render() {
     const { page } = this.props;
+    const children = [];
+    console.log(this.state.numChildren);
+    for (var i = 0; i < this.state.numChildren; i += 1) {
+      children.push(<NewCourseListItem />);
+    }
+
     return (
       <div>
         <AdminHeader page={page} />
@@ -88,16 +103,21 @@ class AdminCreateCoursework extends React.Component {
                           COURSEWORK STATS
                         </div>
                       </Link>
-                      <div className="adminclassroom-createnewcourse">
-                        <div className="adminclassroom-coursestate-listtitle-itemon">
-                          CREATE A COURSEWORK
+                      <Link to="/admin-classroom-createcoursework">
+                        <div className="adminclassroom-createnewcourse">
+                          <div className="adminclassroom-coursestate-listtitle-itemon">
+                            CREATE A COURSEWORK
+                          </div>
+                          <div
+                            className="adminclassroom-createnewcourse-createbtn"
+                            onClick={this.onAddCourseRow}
+                          >
+                            +
+                          </div>
                         </div>
-                        <div className="adminclassroom-createnewcourse-createbtn">
-                          +
-                        </div>
-                      </div>
+                      </Link>
                     </div>
-                    <div className="mt-3 mb-3"></div>
+                    <div className="mt-3 mb-3">{children}</div>
                     <div className="adminclassroom-coursestate-pagenation mt-5 mb-5">
                       <div className="adminclassroom-coursestate-pagenation-btn">
                         PREV

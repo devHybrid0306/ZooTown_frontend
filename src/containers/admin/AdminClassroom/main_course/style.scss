@@ -32,6 +32,12 @@ $fontFamily: "Helvetica Neue";
     font-weight: bold;
     line-height: 49px;
     font-family: $fontFamily;
+    text-align: center;
+  }
+  &-savepagebtnContainer {
+    position: absolute;
+    top: 0px;
+    right: 0px;
   }
   &-savepagebtn {
     display: flex;
@@ -62,6 +68,9 @@ $fontFamily: "Helvetica Neue";
     align-items: center;
     &:hover {
       cursor: default;
+      background-color: white;
+      border: 1px solid #a4d321;
+      color: #a4d321;
     }
   }
   &-section1 {

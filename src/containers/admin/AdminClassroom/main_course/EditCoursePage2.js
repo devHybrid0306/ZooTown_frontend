@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AdminHeader } from "./../../NavBar/index";
-import { Footer } from "./../../../../components/index";
+import { Footer, ScrollToTop } from "./../../../../components/index";
 import { AdminSideBar } from "./../../../../components/admin";
 import {
   Card,
@@ -33,11 +33,12 @@ import ImgCheck from "./../../../../assets/membership.png";
 import ImgAdd from "./../../../../assets/addbtn.png";
 import "./style.scss";
 
-class AdminEditCoursePage extends React.Component {
+class AdminEditCoursePage2 extends React.Component {
   constructor(props) {
     console.log(props.page);
     super(props);
     this.state = {};
+
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handleConfirmEmail = this.handleConfirmEmail.bind(this);
@@ -55,6 +56,7 @@ class AdminEditCoursePage extends React.Component {
   handleConfirmPassword(e) {
     console.log(e.target.value);
   }
+
   render() {
     const { page } = this.props;
     return (
@@ -109,17 +111,6 @@ class AdminEditCoursePage extends React.Component {
                           </div>
                         </div>
                       </div>
-                      <div className="adminclassroom-editcoursepage-section1 mt-5">
-                        <div className="adminclassroom-editcoursepage-section1-video">
-                          Video
-                        </div>
-                        <div className="adminclassroom-editcoursepage-section1-upload">
-                          <img src={ImgAdd} />
-                          <div className="adminclassroom-editcoursepage-section1-upload-label ml-3">
-                            Upload Video
-                          </div>
-                        </div>
-                      </div>
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
                         <div className="adminclassroom-editcoursepage-section2-title">
                           TITLE ONE
@@ -137,24 +128,22 @@ class AdminEditCoursePage extends React.Component {
                           enjoys directly sourcing and approaching candidates
                           for specific project briefs.
                         </div>
-                        <div className="adminclassroom-editcoursepage-section2-desp mt-3 mb-3">
-                          Lorem Ipsum is simply dummy text of the printing and
-                          typesetting industry. Lorem Ipsum has been the
-                          industry's standard dummy text ever since the 1500s,
-                          when an unknown printer took a galley of type and
-                          scrambled it to make a type specimen book. It has
-                          survived not only five centuries, but also the leap
-                          into electronic typesetting, remaining essentially
-                          unchanged. It was popularised in the 1960s with the
-                          release of Letraset sheets containing Lorem Ipsum
-                          passages, and more recently with desktop publishing
-                          software like Aldus PageMaker including versions of
-                          Lorem Ipsum.
+                      </div>
+                      <div className="adminclassroom-editcoursepage-section1 mt-5">
+                        <div className="adminclassroom-editcoursepage-section1-video">
+                          PHOTO
+                        </div>
+                        <div className="adminclassroom-editcoursepage-section1-upload">
+                          <img src={ImgAdd} />
+                          <div className="adminclassroom-editcoursepage-section1-upload-label ml-3">
+                            Upload Picture
+                          </div>
                         </div>
                       </div>
+
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
                         <div className="adminclassroom-editcoursepage-section2-title">
-                          WHY IS USER EXPERIENCE IMPORTANT?
+                          TRY IT YOURSELF - QUIZ TIME
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
                           This role will play an important role in growing our
@@ -169,59 +158,49 @@ class AdminEditCoursePage extends React.Component {
                           enjoys directly sourcing and approaching candidates
                           for specific project briefs.
                         </div>
-                        <div className="adminclassroom-editcoursepage-section2-desp mt-3 mb-3">
-                          Lorem Ipsum is simply dummy text of the printing and
-                          typesetting industry. Lorem Ipsum has been the
-                          industry's standard dummy text ever since the 1500s,
-                          when an unknown printer took a galley of type and
-                          scrambled it to make a type specimen book. It has
-                          survived not only five centuries, but also the leap
-                          into electronic typesetting, remaining essentially
-                          unchanged. It was popularised in the 1960s with the
-                          release of Letraset sheets containing Lorem Ipsum
-                          passages, and more recently with desktop publishing
-                          software like Aldus PageMaker including versions of
-                          Lorem Ipsum.
-                        </div>
                       </div>
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
                         <div className="adminclassroom-editcoursepage-section2-title">
-                          WHY IS USER EXPERIENCE IMPORTANT?
+                          TRY IT YOURSELF - QUIZ TIME
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
                           This role will play an important role in growing our
                           international network of content creators. Working
                           within a small team, you’ll execute on a range of
                           campaigns that will attract a high calibre of
-                          freelance talent into our Network. You’ll then use
-                          your organisation skills to ensure all applicants are
-                          screened in an efficient yet professional manner. The
-                          right person for this role gets excited about running
-                          large-scale talent attraction campaigns, but also
-                          enjoys directly sourcing and approaching candidates
-                          for specific project briefs.
-                        </div>
-                        <div className="adminclassroom-editcoursepage-section2-desp mt-3 mb-3">
-                          Lorem Ipsum is simply dummy text of the printing and
-                          typesetting industry. Lorem Ipsum has been the
-                          industry's standard dummy text ever since the 1500s,
-                          when an unknown printer took a galley of type and
-                          scrambled it to make a type specimen book. It has
-                          survived not only five centuries, but also the leap
-                          into electronic typesetting, remaining essentially
-                          unchanged. It was popularised in the 1960s with the
-                          release of Letraset sheets containing Lorem Ipsum
-                          passages, and more recently with desktop publishing
-                          software like Aldus PageMaker including versions of
-                          Lorem Ipsum.
+                          freelance talent into our Network. Lorem Ipsum is
+                          simply dummy text of the printing and typesetting
+                          industry. Lorem Ipsum has been the industry’s standard
+                          dummy text ever since the 1500s, when an unknown
+                          printer took a galley of type and scrambled it to make
+                          a type specimen book. It has survived not only five
+                          centuries, but also the leap into electronic
+                          typesetting, remaining This role will play an
+                          important role in growing our international network of
+                          content creators. Working within a small team, you’ll
+                          execute on a range of campaigns that will attract a
+                          high calibre of freelance talent into our Network.
+                          You’ll then use your organisation skills to ensure all
+                          applicants are screened in an efficient yet
+                          professional manner. The right person for this role
+                          gets excited about running large-scale talent
+                          attraction campaigns, but also enjoys directly
+                          sourcing and approaching candidates for specific
+                          project briefs.essentially unchanged. It was
+                          popularised in the 1960s with the release of Letraset
+                          sheets containing Lorem Ipsum passages, and more
+                          recently with desktop publishing software like Aldus
+                          PageMaker including versions of Lorem Ipsum.
                         </div>
                       </div>
                     </div>
                     <div className="adminclassroom-coursestate-pagenation mt-5 mb-5">
-                      <div className="adminclassroom-editcoursepage-nextbtn">
-                        PREV
-                      </div>
-                      <Link to="/admin-classroom-editcoursepage2">
+                      <Link to="/admin-classroom-editcoursepage">
+                        <div className="adminclassroom-editcoursepage-nextbtn">
+                          PREV
+                        </div>
+                      </Link>
+                      <Link to="/admin-classroom-editcoursepage3">
                         <div className="adminclassroom-editcoursepage-nextbtn">
                           NEXT
                         </div>
@@ -239,4 +218,4 @@ class AdminEditCoursePage extends React.Component {
   }
 }
 
-export default AdminEditCoursePage;
+export default AdminEditCoursePage2;

@@ -88,9 +88,11 @@ class AdminCourseDetailStats extends React.Component {
                           COURSEWORK STATS
                         </div>
                       </Link>
-                      <div className="adminclassroom-coursestate-listtitle-itemoff">
-                        CREATE A COURSEWORK
-                      </div>
+                      <Link to="admin-classroom-createcoursework">
+                        <div className="adminclassroom-coursestate-listtitle-itemoff">
+                          CREATE A COURSEWORK
+                        </div>
+                      </Link>
                     </div>
                     <div className="mt-3 mb-3">
                       <StatsDetailList></StatsDetailList>
