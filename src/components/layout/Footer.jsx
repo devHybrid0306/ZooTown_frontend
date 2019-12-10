@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { _url } from "../../config/utils";
 import { Link } from "react-router-dom";
 import Facebook from "../../assets/icons/facebook.png";
+import TeacherFooter from "./../../components/admin/teacher_footer";
 
 class Footer extends Component {
   goToLink = url => {
@@ -15,7 +16,10 @@ class Footer extends Component {
       // <Footer>
       <div className="Footer">
         <footer>
-          {page != "coursepage" && page != "admineditcoursepage" ? (
+          {page != "coursepage" &&
+          page != "admineditcoursepage" &&
+          page != "admineditcoursepage2" &&
+          page != "admineditcoursepage3" ? (
             <div className="row link_row">
               <div className="col col-xs-6">
                 <p className="footer_section_title">About Us</p>
@@ -88,7 +92,10 @@ class Footer extends Component {
               </div>
             </div>
           ) : (
-            <div className="link_onlyborder"></div>
+            <div>
+              <TeacherFooter></TeacherFooter>
+              <div className="link_onlyborder"></div>
+            </div>
           )}
           <div className="row copyright_row">
             <div className="col-sm-12 col-md-4">
