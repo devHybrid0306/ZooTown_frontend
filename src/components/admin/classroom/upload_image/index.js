@@ -21,7 +21,10 @@ export class UploadPreview extends Component {
   render() {
     return (
       <div className="uploadpreview">
-        <div className="uploadpreview-imagecontainer">
+        <div
+          className="uploadpreview-imagecontainer"
+          style={{ width: this.props.width, height: this.props.height }}
+        >
           <input
             type="file"
             onChange={this.handleChange}

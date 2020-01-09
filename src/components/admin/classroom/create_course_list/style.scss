@@ -4,6 +4,7 @@ $fontFamily: "Helvetica Neue";
   flex-direction: row;
   border-bottom: 1px solid #979797;
   justify-content: space-between;
+  align-items: start;
   padding-top: 30px;
   padding-bottom: 10px;
   &-cell {

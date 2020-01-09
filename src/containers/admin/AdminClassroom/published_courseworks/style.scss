@@ -3,7 +3,7 @@ $fontFamily: "Helvetica Neue";
 .adminclassroom-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: start;
   &-title {
     color: black;
     font-size: 24px;

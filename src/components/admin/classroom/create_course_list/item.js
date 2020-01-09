@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import UploadCoursePhoto from "./../upload_image";
 import "./style.scss";
 
 function NewCourseListItem() {
@@ -18,15 +19,39 @@ function NewCourseListItem() {
         </div>
         <div className="adminclassroom-createcourse-item-cell">
           <div className="adminclassroom-createcourse-item-cell-label">
-            TOPIC
+            PHOTO
           </div>
-          <div className="adminclassroom-createcourse-item-cell-value"></div>
+          <UploadCoursePhoto width="150px" height="100px" />
         </div>
         <div className="adminclassroom-createcourse-item-cell">
           <div className="adminclassroom-createcourse-item-cell-label">
-            SKILLS DEVELOPED
+            TOPIC
           </div>
-          <div className="adminclassroom-createcourse-item-cell-value"></div>
+          <input
+            type="type"
+            className="adminclassroom-createcourse-item-cell-value"
+            placeholder="Please enter the topic"
+          ></input>
+        </div>
+        <div className="adminclassroom-createcourse-item-cell">
+          <div className="adminclassroom-createcourse-item-cell-label">
+            LEVEL
+          </div>
+          <select>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div className="adminclassroom-createcourse-item-cell">
+          <div className="adminclassroom-createcourse-item-cell-label">
+            TIME
+          </div>
+          <input
+            type="number"
+            className="adminclassroom-createcourse-item-cell-value"
+            placeholder="course hours"
+          ></input>
         </div>
         <div className="adminclassroom-createcourse-item-cell">
           <div className="adminclassroom-createcourse-item-cell-label">

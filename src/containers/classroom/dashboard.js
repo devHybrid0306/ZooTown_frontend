@@ -120,14 +120,14 @@ export default function Dashboard(props) {
           })}
         </div>
         <div className="mt-5 d-flex justify-content-center">
-          <div className="show-more">Shore More</div>
+          <div className="show-more">Show More</div>
         </div>
       </div>
       <div className="dashboard-section4">
         <div className="dashboard-section4-title">STATUS OF COURSES</div>
         <CourseTable data={courseData} />
         <div className="mt-5 d-flex justify-content-center">
-          <div className="show-more">Shore More</div>
+          <div className="show-more">Show More</div>
         </div>
       </div>
     </div>

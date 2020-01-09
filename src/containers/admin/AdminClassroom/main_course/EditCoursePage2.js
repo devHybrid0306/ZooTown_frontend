@@ -33,6 +33,9 @@ import ImgCheck from "./../../../../assets/membership.png";
 import ImgAdd from "./../../../../assets/addbtn.png";
 import "./style.scss";
 
+const desp =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+
 class AdminEditCoursePage2 extends React.Component {
   constructor(props) {
     console.log(props.page);
@@ -113,20 +116,19 @@ class AdminEditCoursePage2 extends React.Component {
                       </div>
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
                         <div className="adminclassroom-editcoursepage-section2-title">
-                          TITLE ONE
+                          <input
+                            type="text"
+                            className="adminclassroom-editcoursepage-section2-title"
+                            placeholder="Title3"
+                            maxLength="50"
+                          />
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
-                          This role will play an important role in growing our
-                          international network of content creators. Working
-                          within a small team, you’ll execute on a range of
-                          campaigns that will attract a high calibre of
-                          freelance talent into our Network. You’ll then use
-                          your organisation skills to ensure all applicants are
-                          screened in an efficient yet professional manner. The
-                          right person for this role gets excited about running
-                          large-scale talent attraction campaigns, but also
-                          enjoys directly sourcing and approaching candidates
-                          for specific project briefs.
+                          <textArea
+                            className="adminclassroom-editcoursepage-section2-desp"
+                            placeholder={desp}
+                            maxLength="1000"
+                          ></textArea>
                         </div>
                       </div>
                       <div className="adminclassroom-editcoursepage-section1 mt-5">
@@ -140,57 +142,38 @@ class AdminEditCoursePage2 extends React.Component {
                           </div>
                         </div>
                       </div>
-
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
                         <div className="adminclassroom-editcoursepage-section2-title">
-                          TRY IT YOURSELF - QUIZ TIME
+                          <input
+                            type="text"
+                            className="adminclassroom-editcoursepage-section2-title"
+                            placeholder="Title1"
+                            maxLength="50"
+                          />
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
-                          This role will play an important role in growing our
-                          international network of content creators. Working
-                          within a small team, you’ll execute on a range of
-                          campaigns that will attract a high calibre of
-                          freelance talent into our Network. You’ll then use
-                          your organisation skills to ensure all applicants are
-                          screened in an efficient yet professional manner. The
-                          right person for this role gets excited about running
-                          large-scale talent attraction campaigns, but also
-                          enjoys directly sourcing and approaching candidates
-                          for specific project briefs.
+                          <textArea
+                            className="adminclassroom-editcoursepage-section2-desp"
+                            placeholder={desp}
+                            maxLength="1000"
+                          ></textArea>
                         </div>
                       </div>
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
                         <div className="adminclassroom-editcoursepage-section2-title">
-                          TRY IT YOURSELF - QUIZ TIME
+                          <input
+                            type="text"
+                            className="adminclassroom-editcoursepage-section2-title"
+                            placeholder="Title1"
+                            maxLength="50"
+                          />
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
-                          This role will play an important role in growing our
-                          international network of content creators. Working
-                          within a small team, you’ll execute on a range of
-                          campaigns that will attract a high calibre of
-                          freelance talent into our Network. Lorem Ipsum is
-                          simply dummy text of the printing and typesetting
-                          industry. Lorem Ipsum has been the industry’s standard
-                          dummy text ever since the 1500s, when an unknown
-                          printer took a galley of type and scrambled it to make
-                          a type specimen book. It has survived not only five
-                          centuries, but also the leap into electronic
-                          typesetting, remaining This role will play an
-                          important role in growing our international network of
-                          content creators. Working within a small team, you’ll
-                          execute on a range of campaigns that will attract a
-                          high calibre of freelance talent into our Network.
-                          You’ll then use your organisation skills to ensure all
-                          applicants are screened in an efficient yet
-                          professional manner. The right person for this role
-                          gets excited about running large-scale talent
-                          attraction campaigns, but also enjoys directly
-                          sourcing and approaching candidates for specific
-                          project briefs.essentially unchanged. It was
-                          popularised in the 1960s with the release of Letraset
-                          sheets containing Lorem Ipsum passages, and more
-                          recently with desktop publishing software like Aldus
-                          PageMaker including versions of Lorem Ipsum.
+                          <textArea
+                            className="adminclassroom-editcoursepage-section2-desp"
+                            placeholder={desp}
+                            maxLength="1000"
+                          ></textArea>
                         </div>
                       </div>
                     </div>
