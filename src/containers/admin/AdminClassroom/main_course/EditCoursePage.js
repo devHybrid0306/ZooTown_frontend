@@ -33,6 +33,7 @@ import ImgCheck from "./../../../../assets/membership.png";
 import ImgAdd from "./../../../../assets/addbtn.png";
 import "./style.scss";
 import TextArea from "antd/lib/input/TextArea";
+import { Icon } from "antd";
 
 const desp =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
@@ -41,7 +42,13 @@ class AdminEditCoursePage extends React.Component {
   constructor(props) {
     console.log(props.page);
     super(props);
-    this.state = {};
+
+    this.state = {
+      file:''
+    };
+    this.myInput = React.createRef();
+    this.handleChange = this.handleChange.bind(this);
+
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handleConfirmEmail = this.handleConfirmEmail.bind(this);
@@ -59,6 +66,21 @@ class AdminEditCoursePage extends React.Component {
   handleConfirmPassword(e) {
     console.log(e.target.value);
   }
+  
+  handleChange(event) {
+    this.setState({
+      file: event.target.files[0]
+        ? URL.createObjectURL(event.target.files[0])
+        : this.state.file
+    });
+    document.getElementById("uploadVideo").style.visibility = "visible";
+    document.getElementById("label").style.visibility = "hidden";
+  }
+
+  triggerClick = () => {
+    this.myInput.current.click()
+  };
+
   render() {
     const { page } = this.props;
     return (
@@ -118,10 +140,24 @@ class AdminEditCoursePage extends React.Component {
                           Video
                         </div>
                         <div className="adminclassroom-editcoursepage-section1-upload">
-                          <img src={ImgAdd} />
-                          <div className="adminclassroom-editcoursepage-section1-upload-label ml-3">
+                          <div>
+                            <img src={ImgAdd} onClick={this.triggerClick}/>
+                            { <input
+                              type="file"
+                              onChange={this.handleChange}
+                              style={{ display:'none' }}
+                              ref={this.myInput}
+                            /> }
+                          </div>
+                          <div className="adminclassroom-editcoursepage-section1-upload-label ml-3" id="label">
                             Upload Video
                           </div>
+                          <video className="adminclassroom-editcoursepage-section1-upload-video"
+                            src={this.state.file} 
+                            id="uploadVideo" 
+                            style={{visibility:"hidden", width: "1000px", height: "400px"}}
+                            controls
+                          />
                         </div>
                       </div>
                       <div className="adminclassroom-editcoursepage-section2 mt-5">

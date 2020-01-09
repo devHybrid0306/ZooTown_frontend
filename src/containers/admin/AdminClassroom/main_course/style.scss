@@ -85,6 +85,7 @@ $fontFamily: "Helvetica Neue";
       text-align: center;
     }
     &-upload {
+      margin-top: 30px;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -95,6 +96,9 @@ $fontFamily: "Helvetica Neue";
         line-height: 17px;
         font-family: $fontFamily;
         text-align: center;
+      }
+      &-video {
+        margin-left: -50px;
       }
     }
   }
@@ -124,4 +128,7 @@ $fontFamily: "Helvetica Neue";
       text-align: left;
     }
   }
+
 }
+
+
