@@ -32,12 +32,15 @@ import { graphql } from "react-apollo";
 import ImgCheck from "./../../../../assets/membership.png";
 import ImgAdd from "./../../../../assets/addbtn.png";
 import "./style.scss";
+import RadioGroup from "antd/lib/radio/group";
 
 class AdminEditCoursePage3 extends React.Component {
   constructor(props) {
     console.log(props.page);
     super(props);
-    this.state = {};
+    this.state = {
+      check: true
+    };
 
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
@@ -169,7 +172,7 @@ class AdminEditCoursePage3 extends React.Component {
                         </div>
                         <div>
                           <div className="course3-question-section-title">
-                            Question1
+                            Question2
                           </div>
                           <div className="course3-question-section-quiz">
                             How many people have been apart of this project?
@@ -206,7 +209,7 @@ class AdminEditCoursePage3 extends React.Component {
                         </div>
                         <div>
                           <div className="course3-question-section-title">
-                            Question1
+                            Question3
                           </div>
                           <div className="course3-question-section-quiz">
                             How many people have been apart of this project?
@@ -243,7 +246,44 @@ class AdminEditCoursePage3 extends React.Component {
                         </div>
                         <div>
                           <div className="course3-question-section-title">
-                            Question1
+                            Question4
+                          </div>
+                          <div className="course3-question-section-quiz">
+                            How many people have been apart of this project?
+                          </div>
+                          <div className="course3-question-section-desp">
+                            Please choose one answer
+                          </div>
+                          <div>
+                            <div className="course3-question-section-answer">
+                              <input type="checkbox" />
+                              <label className="pl-3">
+                                How many people have been apart of this project?
+                              </label>
+                            </div>
+                            <div className="course3-question-section-answer">
+                              <input type="checkbox" />
+                              <label className="pl-3">
+                                How many people have been apart of this project?
+                              </label>
+                            </div>
+                            <div className="course3-question-section-answer">
+                              <input type="checkbox" />
+                              <label className="pl-3">
+                                How many people have been apart of this project?
+                              </label>
+                            </div>
+                            <div className="course3-question-section-answer">
+                              <input type="checkbox" />
+                              <label className="pl-3">
+                                How many people have been apart of this project?
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="course3-question-section-title">
+                            Question5
                           </div>
                           <div className="course3-question-section-quiz">
                             How many people have been apart of this project?
