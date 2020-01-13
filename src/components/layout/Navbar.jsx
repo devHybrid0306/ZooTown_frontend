@@ -181,7 +181,7 @@ logout (){
                               {!this.state.freelancerLoggedin
                       ?
                       <NavItem>
-                          <Link className="nav-link-icon f-14 font-weight-600 my-family text-dark" to="/employer">Employer</Link>
+                          <Link className="nav-link-icon f-14 font-weight-600 my-family text-yellow" to="/employer">Employer</Link>
                     </NavItem>
                                 :null}
                         
@@ -237,24 +237,11 @@ logout (){
                       <Link className="nav-link-icon f-14 font-weight-600 my-family text-dark" to="/admin">Admin</Link>
                     </NavItem>
                       <NavItem>
-                              <Modal content={<ChoosePlanEmployer step={2} type={'job'} />} className="ModalSignup">
-                    <a className="nav-link-icon f-14 font-weight-600 my-family text-dark">Post a Job</a>
-                  </Modal>
-  
-  
-                    </NavItem>
-                      <NavItem>
-                      <Modal content={<ChoosePlanEmployer step={3} type={'event'} />} className="ModalSignup">
-                    <a className="nav-link-icon f-14 font-weight-600 my-family text-dark">Post a Event</a>
-                  </Modal>
-  
-                    </NavItem>
-                      <NavItem>
                           <Link className="nav-link-icon f-14 font-weight-600 my-family text-dark" to="/events">Events</Link>
   
                     </NavItem>
                           <NavItem>
-                      <Link className="nav-link-icon f-14 font-weight-600 my-family text-dark" to="/students">Students</Link>
+                      <Link className="nav-link-icon f-14 font-weight-600 my-family text-yellow" to="/students">Students</Link>
   
                     </NavItem>
                            
@@ -884,7 +871,7 @@ logout (){
                             {!this.state.freelancerLoggedin
                     ?
                     <NavItem>
-                                                <Link className="nav-link-icon text-dark" to="/employer">Employer</Link>
+                                                <Link className="nav-link-icon text-yellow" to="/employer">Employer</Link>
                   </NavItem>
                               :null}
                       </Nav>
@@ -893,16 +880,6 @@ logout (){
                               <Nav className="navbar-nav-hover align-items-lg-center" navbar>
                         <NavItem>
                     <Link className="nav-link-icon text-dark" to="/about-us">Why Zoo Town Tasks?</Link>
-                  </NavItem>
-                    <NavItem>
-                            <Modal content={<ChoosePlanEmployer step={2} type={'job'} />} className="ModalSignup">
-                  <a className="nav-link-icon text-dark">Post a Job</a>
-                </Modal>
-                  </NavItem>
-                    <NavItem>
-                    <Modal content={<ChoosePlanEmployer step={3} type={'event'} />} className="ModalSignup">
-                  <a className="nav-link-icon text-dark">Post a Event</a>
-                </Modal>
                   </NavItem>
                     <NavItem>
                         <Link className="nav-link-icon text-dark" to="/events">Events</Link>

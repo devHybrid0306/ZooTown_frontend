@@ -1,5 +1,5 @@
-import React from 'react';
-import { Footer, Header } from '../components/index';
+import React from "react";
+import { Footer, Header } from "../components/index";
 import {
   OurServicesSection,
   StudentSideBar,
@@ -7,12 +7,12 @@ import {
   StudentJumbotron,
   BlogSection,
   BenefitsSection,
-  Reviews,
-} from '../components/home';
-import gpl from 'graphql-tag';
-import { Link } from 'react-router-dom';
-import Slider from 'react-slick';
-import { Switch, Icon, Checkbox } from 'antd';
+  Reviews
+} from "../components/home";
+import gpl from "graphql-tag";
+import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import { Switch, Icon, Checkbox } from "antd";
 import {
   Card,
   CardBody,
@@ -28,14 +28,14 @@ import {
   InputGroupAddon,
   InputGroupText,
   InputGroup,
-  Container,
-} from 'reactstrap';
-import classnames from 'classnames';
-import { graphql } from 'react-apollo';
-import { getPlans } from '../actions/plans';
-import { connect } from 'react-redux';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
+  Container
+} from "reactstrap";
+import classnames from "classnames";
+import { graphql } from "react-apollo";
+import { getPlans } from "../actions/plans";
+import { connect } from "react-redux";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -46,34 +46,34 @@ class Profile extends React.Component {
       oneslides: 3,
       twoslides: 2,
       plainTabs: 2,
-      filter: false,
+      filter: false
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
   toggleNavs = (e, state, index) => {
     e.preventDefault();
     this.setState({
-      [state]: index,
+      [state]: index
     });
   };
 
   showfilter() {
     this.setState({
-      filter: true,
+      filter: true
     });
   }
   hidefilter() {
     this.setState({
-      filter: false,
+      filter: false
     });
   }
   componentDidMount() {
     this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
+    window.addEventListener("resize", this.updateWindowDimensions);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
+    window.removeEventListener("resize", this.updateWindowDimensions);
   }
 
   updateWindowDimensions() {
@@ -96,7 +96,7 @@ class Profile extends React.Component {
       speed: 500,
       autoplay: true,
       slidesToShow: this.state.oneslides,
-      slidesToScroll: 1,
+      slidesToScroll: 1
     };
     const settingrecommendation = {
       dots: false,
@@ -104,7 +104,7 @@ class Profile extends React.Component {
       speed: 500,
       autoplay: true,
       slidesToShow: this.state.twoslides,
-      slidesToScroll: 1,
+      slidesToScroll: 1
     };
     return (
       <div>
@@ -119,7 +119,7 @@ class Profile extends React.Component {
                     <Col md={4}>
                       <img
                         className="rounded-circle h-168-mobile img-center img-fluid"
-                        src={require('../assets/img/theme/team-1-800x800.jpg')}
+                        src={require("../assets/img/theme/team-1-800x800.jpg")}
                       />
                     </Col>
                     <Col md={8} className="mt-5 text-center-mobile">
@@ -128,20 +128,20 @@ class Profile extends React.Component {
                           <p>
                             <img
                               className="w-20-icon"
-                              src={require('../assets/lightbulb.png')}
+                              src={require("../assets/lightbulb.png")}
                             />
                             <span className="f-17 my-family font-weight-500 text-black ml-3">
-                              {' '}
+                              {" "}
                               Studying University
                             </span>
                           </p>
                           <p>
                             <img
                               className="w-20-icon"
-                              src={require('../assets/maps-and-flags.png')}
+                              src={require("../assets/maps-and-flags.png")}
                             />
                             <span className="f-17 my-family font-weight-500 text-black ml-3">
-                              {' '}
+                              {" "}
                               San Fransisco
                             </span>
                           </p>
@@ -150,33 +150,13 @@ class Profile extends React.Component {
                           <p>
                             <img
                               className="w-20-icon"
-                              src={require('../assets/star.png')}
+                              src={require("../assets/star.png")}
                             />
                             <span className="f-17 my-family font-weight-500 text-black ml-3">
-                              {' '}
+                              {" "}
                               Graphic Designer
                             </span>
                           </p>
-                        </Col>
-                        <Col md={12}>
-                          <Row className="mt-5">
-                            <Col
-                              md={4}
-                              className="border-bottom border-darker border-right border-top text-center  pr-0"
-                            >
-                              <p className="mb-0 mt-3 text-black">56</p>
-                              <p className="f-12 text-mutedd">
-                                Recommendations
-                              </p>
-                            </Col>
-                            <Col
-                              md={4}
-                              className="border-bottom border-darker border-left border-top text-center pl-0"
-                            >
-                              <p className="mb-0 mt-3 text-black">7</p>
-                              <p className="f-12 text-mutedd">Views</p>
-                            </Col>
-                          </Row>
                         </Col>
                       </Row>
                     </Col>
@@ -206,7 +186,7 @@ class Profile extends React.Component {
                         role in growing our international network of content
                         creators. Working within a small This role will play an
                         important role in growing our international network of
-                        content creators. Working within a small{' '}
+                        content creators. Working within a small{" "}
                       </p>
                     </Col>
                   </Row>
@@ -245,15 +225,15 @@ class Profile extends React.Component {
                           <p>
                             <img
                               className="w-20-icon"
-                              src={require('../assets/circle-shape-outline.png')}
+                              src={require("../assets/circle-shape-outline.png")}
                             />
                             <span className="f-22 font-weight-500 text-black ml-3">
-                              {' '}
+                              {" "}
                               European University Cyprus
                             </span>
                           </p>
                           <p className="text-black ml-5 f-17">
-                            MBA Social Media Marketing (Scholarship) 3.57/4.00{' '}
+                            MBA Social Media Marketing (Scholarship) 3.57/4.00{" "}
                             <br /> 2015 - 2018
                           </p>
                         </Col>
@@ -261,15 +241,15 @@ class Profile extends React.Component {
                           <p>
                             <img
                               className="w-20-icon"
-                              src={require('../assets/circle-shape-outline.png')}
+                              src={require("../assets/circle-shape-outline.png")}
                             />
                             <span className="f-22 font-weight-500 text-black ml-3">
-                              {' '}
+                              {" "}
                               European University Cyprus
                             </span>
                           </p>
                           <p className="text-black ml-5 f-17">
-                            MBA Social Media Marketing (Scholarship) 3.57/4.00{' '}
+                            MBA Social Media Marketing (Scholarship) 3.57/4.00{" "}
                             <br /> 2015 - 2018
                           </p>
                         </Col>
@@ -277,15 +257,15 @@ class Profile extends React.Component {
                           <p>
                             <img
                               className="w-20-icon"
-                              src={require('../assets/circle-shape-outline.png')}
+                              src={require("../assets/circle-shape-outline.png")}
                             />
                             <span className="f-22 font-weight-500 text-black ml-3">
-                              {' '}
+                              {" "}
                               European University Cyprus
                             </span>
                           </p>
                           <p className="text-black ml-5 f-17">
-                            MBA Social Media Marketing (Scholarship) 3.57/4.00{' '}
+                            MBA Social Media Marketing (Scholarship) 3.57/4.00{" "}
                             <br /> 2015 - 2018
                           </p>
                         </Col>
@@ -293,15 +273,15 @@ class Profile extends React.Component {
                           <p>
                             <img
                               className="w-20-icon"
-                              src={require('../assets/circle-shape-outline.png')}
+                              src={require("../assets/circle-shape-outline.png")}
                             />
                             <span className="f-22 font-weight-500 text-black ml-3">
-                              {' '}
+                              {" "}
                               European University Cyprus
                             </span>
                           </p>
                           <p className="text-black ml-5 f-17">
-                            MBA Social Media Marketing (Scholarship) 3.57/4.00{' '}
+                            MBA Social Media Marketing (Scholarship) 3.57/4.00{" "}
                             <br /> 2015 - 2018
                           </p>
                         </Col>
@@ -316,37 +296,37 @@ class Profile extends React.Component {
                       <Row className="mt-5">
                         <Col md={12} className="  pr-0">
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Quick Apply{' '}
+                            Quick Apply{" "}
                           </button>
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Quick Apply{' '}
+                            Quick Apply{" "}
                           </button>
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Quick Apply{' '}
+                            Quick Apply{" "}
                           </button>
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Quick Apply{' '}
+                            Quick Apply{" "}
                           </button>
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Quick Apply{' '}
+                            Quick Apply{" "}
                           </button>
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Quick Apply{' '}
+                            Quick Apply{" "}
                           </button>
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Quick Apply{' '}
+                            Quick Apply{" "}
                           </button>
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Quick Apply{' '}
+                            Quick Apply{" "}
                           </button>
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Quick Apply{' '}
+                            Quick Apply{" "}
                           </button>
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Quick Apply{' '}
+                            Quick Apply{" "}
                           </button>
                           <button className="mt-3 mr-3 btn btn-dark bg-dark text-white f-15 badge-pill w-130 h-35   ">
-                            Show More{' '}
+                            Show More{" "}
                           </button>
                         </Col>
                       </Row>
@@ -362,11 +342,11 @@ class Profile extends React.Component {
                           <p>
                             <img
                               className="w-20-icon"
-                              src={require('../assets/energy.png')}
+                              src={require("../assets/energy.png")}
                             />
                             <span className="f-20-mobile font-weight-500 text-black ml-3">
-                              {' '}
-                              Second Honors for Academic Achievement{' '}
+                              {" "}
+                              Second Honors for Academic Achievement{" "}
                             </span>
                           </p>
                         </Col>
@@ -374,10 +354,10 @@ class Profile extends React.Component {
                           <p>
                             <img
                               className="w-20-icon"
-                              src={require('../assets/energy.png')}
+                              src={require("../assets/energy.png")}
                             />
                             <span className="f-20-mobile font-weight-500 text-black ml-3">
-                              {' '}
+                              {" "}
                               Google AdWords Certified
                             </span>
                           </p>
@@ -386,11 +366,11 @@ class Profile extends React.Component {
                           <p>
                             <img
                               className="w-20-icon"
-                              src={require('../assets/energy.png')}
+                              src={require("../assets/energy.png")}
                             />
                             <span className="f-20-mobile font-weight-500 text-black ml-3">
-                              {' '}
-                              Second Honors for Academic Achievement{' '}
+                              {" "}
+                              Second Honors for Academic Achievement{" "}
                             </span>
                           </p>
                         </Col>
@@ -408,11 +388,11 @@ class Profile extends React.Component {
                             <Col md={12} className=" ">
                               <img
                                 className="w-100"
-                                src={require('../assets/img/theme/team-3-800x800.jpg')}
+                                src={require("../assets/img/theme/team-3-800x800.jpg")}
                               />
                               <p className="mt-3">
                                 <span className="f-16-xs font-weight-500 text-black">
-                                  {' '}
+                                  {" "}
                                   FREELANCER ACQUISITION EXECUTIVE
                                 </span>
                               </p>
@@ -420,11 +400,11 @@ class Profile extends React.Component {
                             <Col md={12} className=" ">
                               <img
                                 className="w-100"
-                                src={require('../assets/img/theme/team-3-800x800.jpg')}
+                                src={require("../assets/img/theme/team-3-800x800.jpg")}
                               />
                               <p className="mt-3">
                                 <span className="f-16-xs font-weight-500 text-black">
-                                  {' '}
+                                  {" "}
                                   FREELANCER ACQUISITION EXECUTIVE
                                 </span>
                               </p>
@@ -432,11 +412,11 @@ class Profile extends React.Component {
                             <Col md={12} className="  ">
                               <img
                                 className="w-100"
-                                src={require('../assets/img/theme/team-2-800x800.jpg')}
+                                src={require("../assets/img/theme/team-2-800x800.jpg")}
                               />
                               <p className="mt-3">
                                 <span className="f-16-xs font-weight-500 text-black">
-                                  {' '}
+                                  {" "}
                                   FREELANCER ACQUISITION EXECUTIVE
                                 </span>
                               </p>
@@ -444,11 +424,11 @@ class Profile extends React.Component {
                             <Col md={12} className="  ">
                               <img
                                 className="w-100"
-                                src={require('../assets/img/theme/team-4-800x800.jpg')}
+                                src={require("../assets/img/theme/team-4-800x800.jpg")}
                               />
                               <p className="mt-3">
                                 <span className="f-16-xs font-weight-500 text-black">
-                                  {' '}
+                                  {" "}
                                   FREELANCER ACQUISITION EXECUTIVE
                                 </span>
                               </p>
@@ -456,11 +436,11 @@ class Profile extends React.Component {
                             <Col md={12} className="">
                               <img
                                 className="w-100"
-                                src={require('../assets/img/theme/team-1-800x800.jpg')}
+                                src={require("../assets/img/theme/team-1-800x800.jpg")}
                               />
                               <p className="mt-3">
                                 <span className="f-16-xs font-weight-500 text-black">
-                                  {' '}
+                                  {" "}
                                   FREELANCER ACQUISITION EXECUTIVE
                                 </span>
                               </p>
@@ -469,7 +449,7 @@ class Profile extends React.Component {
                         </Col>
                         <Col md={3} className="ml-auto col-5 mr-auto mt-5">
                           <button className="mt-3 mr-3 btn btn-primary f-15 badge-pill w-130 h-35  text-dark primary-color">
-                            Show More{' '}
+                            Show More{" "}
                           </button>
                         </Col>
                       </Row>
@@ -488,7 +468,7 @@ class Profile extends React.Component {
                                 <Col md={3}>
                                   <img
                                     className="h-70 rounded-circle img-center"
-                                    src={require('../assets/img/theme/team-3-800x800.jpg')}
+                                    src={require("../assets/img/theme/team-3-800x800.jpg")}
                                   />
                                 </Col>
                                 <Col md={9} className="text-center-mobile">
@@ -523,7 +503,7 @@ class Profile extends React.Component {
                                 <Col md={3}>
                                   <img
                                     className="h-70 rounded-circle img-center"
-                                    src={require('../assets/img/theme/team-3-800x800.jpg')}
+                                    src={require("../assets/img/theme/team-3-800x800.jpg")}
                                   />
                                 </Col>
                                 <Col md={9} className="text-center-mobile">
@@ -558,7 +538,7 @@ class Profile extends React.Component {
                                 <Col md={3}>
                                   <img
                                     className="h-70 rounded-circle img-center"
-                                    src={require('../assets/img/theme/team-3-800x800.jpg')}
+                                    src={require("../assets/img/theme/team-3-800x800.jpg")}
                                   />
                                 </Col>
                                 <Col md={9} className="text-center-mobile">
@@ -593,7 +573,7 @@ class Profile extends React.Component {
                                 <Col md={3}>
                                   <img
                                     className="h-70 rounded-circle img-center"
-                                    src={require('../assets/img/theme/team-3-800x800.jpg')}
+                                    src={require("../assets/img/theme/team-3-800x800.jpg")}
                                   />
                                 </Col>
                                 <Col md={9} className="text-center-mobile">
@@ -641,15 +621,12 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    plans: state.common.plans,
+    plans: state.common.plans
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    dispatch,
+    dispatch
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

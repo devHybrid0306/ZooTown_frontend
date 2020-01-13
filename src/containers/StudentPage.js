@@ -667,7 +667,6 @@ hidefilter(){
                              </Row>
                             <Row className="mt-4">
                                 <Col md={12}>
-                                    <p className=" mt-3 mb-3 f-19 my-family font-weight-600">Locations</p>
                                       <InputGroup className="input-group-alternative mb-4">
                                           <Input
                                       className="input-bc border-t-l-r border-b-l-r"
@@ -684,7 +683,7 @@ hidefilter(){
                                             <InputGroupText className="border-b-r-r border-t-r-r">
                                               <i className="ni ni-tag primary-color-text" />
                                             </InputGroupText>
-                                        </InputGroupAddon>
+                                          </InputGroupAddon>
                                     </InputGroup>
                                 </Col>
                                 <Col md={12}>

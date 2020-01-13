@@ -9,3 +9,12 @@
 a {
   background-color: #fedb45;
 }
+
+.text-yellow {
+  color: #fedb45;
+}
+
+a.text-yellow:hover,
+a.text-yellow:focus {
+  color: #fedb45 !important;
+}
