@@ -279,26 +279,10 @@ hidefilter(){
                                         <p className="f-17 my-family text-black font-weight-500 text-center mt-3">Eugen Bardill</p>
                                         <p className="f-12 text-mutedd my-family  text-center mt-2"><i className="fa fa-map-marker"></i> San Francisco</p>
                                     </div>
-                                        <div className="col-12">    
-                                           <Row className="border-top border-bottom">
-                                               <div className="col-6 border-right">
-                                         <p className="mb-0 mt-3 my-family-cond-bold f-14 text-black">56</p>
-                                         <p className="f-12 my-family text-mutedd">Recommendations</p>
-                                    </div>
-                                    <div className="col-6 border-left">
-                                          <p className="mb-0 mt-3 my-family-cond-bold f-14 text-black">7</p>
-                                           <p className="f-12 my-family text-mutedd">Views</p>
-                                    </div>
-                                               </Row>
-                                    </div>
                                     <div className="col-12 pt-3">
                                          <Link  to="/studentprofile" className="  primary-color-text f-14 my-family-medium font-weight-500">View Profile </Link>
                                     </div>
                                 </div>
-                             
-                                   
-                                   
-                                  
                                    </Card>
                         </Col>
                                    
@@ -312,68 +296,11 @@ hidefilter(){
                                             pills
                                             role="tablist"
                                           >
-                                            <NavItem className="col-md-4">
-                                              <NavLink
-                                                aria-selected={this.state.subplainTabs === 1}
-                                                className={classnames("mb-sm-3 mb-md-0 my-family-bold f-14 p-0", {
-                                                  active: this.state.subplainTabs === 1
-                                                })}
-                                                onClick={e => this.subtoggleNavs(e, "subplainTabs", 1)}
-                                                href="#pablo"
-                                                role="tab"
-                                              >
-                                                    <img src={require('../assets/share.png')} />
-                                                <span className="my-family text-black f-14 ml-2">Share and Update</span>
-                                              </NavLink>
-                                            </NavItem>
-                                            <NavItem className="col-md-4">
-                                              <NavLink
-                                                aria-selected={this.state.subplainTabs === 2}
-                                                className={classnames("mb-sm-3 f-14 my-family-bold mb-md-0 p-0", {
-                                                  active: this.state.subplainTabs === 2
-                                                })}
-                                                onClick={e => this.subtoggleNavs(e, "subplainTabs", 2)}
-                                                href="#pablo"
-                                                role="tab"
-                                              >
-                                                <img src={require('../assets/upload.png')} />
-                                                <span className="my-family text-black f-14 ml-2">Upload Photo</span>
-                                              </NavLink>
-                                                </NavItem>
-                                            <NavItem className="col-md-4">
-                                              <NavLink
-                                                aria-selected={this.state.subplainTabs === 3}
-                                                className={classnames("mb-sm-3 f-14 my-family-bold mb-md-0 p-0", {
-                                                  active: this.state.subplainTabs === 3
-                                                })}
-                                                onClick={e => this.subtoggleNavs(e, "subplainTabs", 3)}
-                                                href="#pablo"
-                                                role="tab"
-                                              >
-                                                <img src={require('../assets/shareupdate.png')} />
-                                                <span className="my-family text-black f-14 ml-2">Check in</span>
-                                              </NavLink>
-                                            </NavItem>
+                                            
                                         </Nav>
                                 </div>
 
                                 </Col>
-                              <Col md={12}>
-                                        <Card className="border-0">
-                                          <CardBody>
-                                            <TabContent activeTab={"subplainTabs" + this.state.subplainTabs}>
-                                              <TabPane tabId="subplainTabs1" className="border-top">
-                                                <Input type="textarea" className="border-top-0 border-left-0 border-right-0 h-190" placeholder="Write Something...." name="text" id="exampleText" />
-                                              </TabPane>
-                                              <TabPane tabId="subplainTabs2" className="border-top">
-
-                                               <Previews />
-                                                </TabPane>
-                                                </TabContent>
-                                                </CardBody>
-                                                </Card>
-                                                    
-                              </Col>
                           </Row>
                           <Row>
                                                   

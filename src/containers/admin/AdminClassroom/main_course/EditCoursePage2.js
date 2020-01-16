@@ -41,9 +41,8 @@ class AdminEditCoursePage2 extends React.Component {
     console.log(props.page);
     super(props);
     this.state = {
-      file:''
+      file: ""
     };
-    this.myInput = React.createRef();
     this.handleChange = this.handleChange.bind(this);
 
     this.handleEmail = this.handleEmail.bind(this);
@@ -75,7 +74,7 @@ class AdminEditCoursePage2 extends React.Component {
   }
 
   triggerClick = () => {
-    this.myInput.current.click()
+    this.myInput.current.click();
   };
 
   render() {
@@ -154,22 +153,32 @@ class AdminEditCoursePage2 extends React.Component {
                           PHOTO
                         </div>
                         <div className="adminclassroom-editcoursepage-section1-upload">
-                        <div>
-                            <img src={ImgAdd} onClick={this.triggerClick}/>
-                            { <input
-                              type="file"
-                              onChange={this.handleChange}
-                              style={{ display:'none' }}
-                              ref={this.myInput}
-                            /> }
+                          <div>
+                            <img src={ImgAdd} onClick={this.triggerClick} />
+                            {
+                              <input
+                                type="file"
+                                onChange={this.handleChange}
+                                style={{ display: "none" }}
+                                ref={this.myInput}
+                              />
+                            }
                           </div>
-                          <div className="adminclassroom-editcoursepage-section1-upload-label ml-3" id="label">
+                          <div
+                            className="adminclassroom-editcoursepage-section1-upload-label ml-3"
+                            id="label"
+                          >
                             Upload Photo
                           </div>
-                          <img className="adminclassroom-editcoursepage-section1-upload-video"
-                            src={this.state.file} 
-                            id="uploadPhoto" 
-                            style={{visibility:"hidden", width: "1000px", height: "400px"}}
+                          <img
+                            className="adminclassroom-editcoursepage-section1-upload-video"
+                            src={this.state.file}
+                            id="uploadPhoto"
+                            style={{
+                              visibility: "hidden",
+                              width: "1000px",
+                              height: "400px"
+                            }}
                           />
                         </div>
                       </div>

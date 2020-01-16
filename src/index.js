@@ -21,6 +21,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 
 import { ApolloClient } from "apollo-client";
 import { createUploadLink } from "apollo-upload-client";
+import ScrollToTop from "./components/ScrollToTop";
 
 const createApolloClient = (cache = {}) =>
   new ApolloClient({
@@ -42,9 +43,9 @@ ReactDOM.render(
     <Provider store={_store}>
       <PersistGate loading={<h1>Loading...</h1>} persistor={persistor}>
         <BrowserRouter basename={BASE_PATH}>
-          {/* <ScrollToTop> */}
-          <App />
-          {/* </ScrollToTop> */}
+          <ScrollToTop>
+            <App />
+          </ScrollToTop>
         </BrowserRouter>
       </PersistGate>
     </Provider>

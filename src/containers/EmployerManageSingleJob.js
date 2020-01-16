@@ -114,25 +114,6 @@ render() {
                                     </Col>
                                </Row>
                             </Col>
-                           <Col md={3} className="ml-auto mt-sm-20">
-                                <button className="float-left btn primary-color badge-pill text-black px-4">Manage Project</button>
-                                 <UncontrolledDropdown nav className="float-right" >
-                                        <DropdownToggle nav>
-                                         <img src={require('../assets/settings.png')} />
-                                        </DropdownToggle>
-                                        <DropdownMenu className=" primary-color">
-                                          <DropdownItem to="/studentprofile" tag={Link}>
-                                            Request more time
-                                          </DropdownItem>
-                                          <DropdownItem to="/my-jobs" tag={Link}>
-                                            Refund Money
-                                          </DropdownItem>
-                                          <DropdownItem to="/my-settings" tag={Link}>
-                                            Finish Project
-                                          </DropdownItem>
-                                        </DropdownMenu>
-                                      </UncontrolledDropdown>
-                            </Col>
                         </Row>
                         <Row>
                              <Col md={8} className="">
@@ -155,21 +136,6 @@ render() {
                                         role="tab"
                                       >
                                         ABOUT PROJECT
-
-                                      </NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                      <NavLink
-                                        aria-selected={this.state.plainTabs === 2}
-                                        className={classnames("mb-sm-3 mb-md-0 f-16", {
-                                          active: this.state.plainTabs === 2
-                                        })}
-
-                                        onClick={e => this.toggleNavs(e, "plainTabs", 2)}
-                                        href="#pablo"
-                                        role="tab"
-                                      >
-                                        MESSAGE & FILES
 
                                       </NavLink>
                                     </NavItem>

@@ -34,6 +34,8 @@ import ImgAdd from "./../../../../assets/addbtn.png";
 import "./style.scss";
 import TextArea from "antd/lib/input/TextArea";
 import { Icon } from "antd";
+import { connect } from "react-redux";
+import NotificationSystem from "react-notification-system";
 
 const desp =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
@@ -44,7 +46,7 @@ class AdminEditCoursePage extends React.Component {
     super(props);
 
     this.state = {
-      file:''
+      file: ""
     };
     this.myInput = React.createRef();
     this.handleChange = this.handleChange.bind(this);
@@ -66,7 +68,7 @@ class AdminEditCoursePage extends React.Component {
   handleConfirmPassword(e) {
     console.log(e.target.value);
   }
-  
+
   handleChange(event) {
     this.setState({
       file: event.target.files[0]
@@ -78,7 +80,19 @@ class AdminEditCoursePage extends React.Component {
   }
 
   triggerClick = () => {
-    this.myInput.current.click()
+    this.myInput.current.click();
+  };
+
+  notificationSystem = React.createRef();
+
+  addNotification = event => {
+    event.preventDefault();
+    const notification = this.notificationSystem.current;
+    notification.addNotification({
+      message: <h5>Success</h5>,
+      level: "success",
+      children: <h7>Page has been saved!</h7>
+    });
   };
 
   render() {
@@ -121,10 +135,13 @@ class AdminEditCoursePage extends React.Component {
                     <div className="col mt-3 mb-3">
                       <div>
                         <div className="adminclassroom-editcoursepage-skilltitle">
-                          HTML & CSS
+                          {this.props.courseitem.coursename}
                         </div>
                         <div className="adminclassroom-editcoursepage-savepagebtnContainer">
-                          <div className="adminclassroom-editcoursepage-savepagebtn">
+                          <div
+                            className="adminclassroom-editcoursepage-savepagebtn"
+                            onClick={this.addNotification}
+                          >
                             <img
                               src={ImgCheck}
                               style={{ width: 42, height: 39 }}
@@ -133,6 +150,7 @@ class AdminEditCoursePage extends React.Component {
                               SavePage
                             </div>
                           </div>
+                          <NotificationSystem ref={this.notificationSystem} />
                         </div>
                       </div>
                       <div className="adminclassroom-editcoursepage-section1 mt-5">
@@ -141,21 +159,31 @@ class AdminEditCoursePage extends React.Component {
                         </div>
                         <div className="adminclassroom-editcoursepage-section1-upload">
                           <div>
-                            <img src={ImgAdd} onClick={this.triggerClick}/>
-                            { <input
-                              type="file"
-                              onChange={this.handleChange}
-                              style={{ display:'none' }}
-                              ref={this.myInput}
-                            /> }
+                            <img src={ImgAdd} onClick={this.triggerClick} />
+                            {
+                              <input
+                                type="file"
+                                onChange={this.handleChange}
+                                style={{ display: "none" }}
+                                ref={this.myInput}
+                              />
+                            }
                           </div>
-                          <div className="adminclassroom-editcoursepage-section1-upload-label ml-3" id="label">
+                          <div
+                            className="adminclassroom-editcoursepage-section1-upload-label ml-3"
+                            id="label"
+                          >
                             Upload Video
                           </div>
-                          <video className="adminclassroom-editcoursepage-section1-upload-video"
-                            src={this.state.file} 
-                            id="uploadVideo" 
-                            style={{visibility:"hidden", width: "1000px", height: "400px"}}
+                          <video
+                            className="adminclassroom-editcoursepage-section1-upload-video"
+                            src={this.state.file}
+                            id="uploadVideo"
+                            style={{
+                              visibility: "hidden",
+                              width: "1000px",
+                              height: "400px"
+                            }}
                             controls
                           />
                         </div>
@@ -234,4 +262,8 @@ class AdminEditCoursePage extends React.Component {
   }
 }
 
-export default AdminEditCoursePage;
+const mapStateToProps = state => ({
+  courseitem: state.course.item
+});
+
+export default connect(mapStateToProps, {})(AdminEditCoursePage);

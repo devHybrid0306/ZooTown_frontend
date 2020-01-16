@@ -25,6 +25,7 @@ $fontFamily: "Helvetica Neue";
     justify-content: center;
     align-content: center;
     margin-left: 20px;
+    cursor: default;
   }
   &-skilltitle {
     color: black;
@@ -50,6 +51,7 @@ $fontFamily: "Helvetica Neue";
       font-family: $fontFamily;
       font-weight: 500;
       margin-left: 10px;
+      cursor: default;
     }
   }
   &-nextbtn {
@@ -128,7 +130,4 @@ $fontFamily: "Helvetica Neue";
       text-align: left;
     }
   }
-
 }
-
-
