@@ -31,6 +31,9 @@ import classnames from "classnames";
 import { graphql } from "react-apollo";
 import ImgCheck from "./../../../../assets/membership.png";
 import ImgAdd from "./../../../../assets/addbtn.png";
+import { connect } from "react-redux";
+import NotificationSystem from "react-notification-system";
+
 import "./style.scss";
 
 const desp =
@@ -77,6 +80,18 @@ class AdminEditCoursePage2 extends React.Component {
     this.myInput.current.click();
   };
 
+  notificationSystem = React.createRef();
+
+  addNotification = event => {
+    event.preventDefault();
+    const notification = this.notificationSystem.current;
+    notification.addNotification({
+      message: <h5>Success</h5>,
+      level: "success",
+      children: <h7>Page has been saved!</h7>
+    });
+  };
+
   render() {
     const { page } = this.props;
     return (
@@ -99,7 +114,7 @@ class AdminEditCoursePage2 extends React.Component {
                   <div className="adminclassroom-coursestate">
                     <div className="adminclassroom-coursestate-listtitle">
                       <Link to="/admin-classroom-publishedcourseworks">
-                        <div className="adminclassroom-coursestate-listtitle-itemon">
+                        <div className="adminclassroom-coursestate-listtitle-itemoff">
                           PUBLISHED COURSEWORKS
                         </div>
                       </Link>
@@ -109,7 +124,7 @@ class AdminEditCoursePage2 extends React.Component {
                         </div>
                       </Link>
                       <Link to="/admin-classroom-createcoursework">
-                        <div className="adminclassroom-published-listtitle-itemoff">
+                        <div className="adminclassroom-published-listtitle-itemon">
                           CREATE A COURSEWORK
                         </div>
                       </Link>
@@ -117,10 +132,13 @@ class AdminEditCoursePage2 extends React.Component {
                     <div className="col mt-3 mb-3">
                       <div>
                         <div className="adminclassroom-editcoursepage-skilltitle">
-                          HTML & CSS
+                          {this.props.courseitem.coursename}
                         </div>
                         <div className="adminclassroom-editcoursepage-savepagebtnContainer">
-                          <div className="adminclassroom-editcoursepage-savepagebtn">
+                          <div
+                            className="adminclassroom-editcoursepage-savepagebtn"
+                            onClick={this.addNotification}
+                          >
                             <img
                               src={ImgCheck}
                               style={{ width: 42, height: 39 }}
@@ -129,6 +147,7 @@ class AdminEditCoursePage2 extends React.Component {
                               SavePage
                             </div>
                           </div>
+                          <NotificationSystem ref={this.notificationSystem} />
                         </div>
                       </div>
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
@@ -241,4 +260,8 @@ class AdminEditCoursePage2 extends React.Component {
   }
 }
 
-export default AdminEditCoursePage2;
+const mapStateToProps = state => ({
+  courseitem: state.course.item
+});
+
+export default connect(mapStateToProps, {})(AdminEditCoursePage2);

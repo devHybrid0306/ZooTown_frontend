@@ -9,15 +9,21 @@ import "./style.scss";
 const NewCourseListItem = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  function handleClick() {
-    console.log(coursename);
-
-    dispatch(newCourse({ coursename, coursetopic }));
-    history.push("/admin-classroom-editcoursepage");
-  }
 
   const [coursename, setCoursename] = useState("");
   const [coursetopic, setCoursetopic] = useState("");
+  const [coursephoto, setCoursephoto] = useState("");
+
+  const callbackFunction = childData => {
+    setCoursephoto(childData);
+  };
+
+  function handleClick() {
+    console.log(coursename);
+
+    dispatch(newCourse({ coursename, coursetopic, coursephoto }));
+    history.push("/admin-classroom-editcoursepage");
+  }
 
   return (
     <div>
@@ -38,7 +44,11 @@ const NewCourseListItem = () => {
           <div className="adminclassroom-createcourse-item-cell-label">
             PHOTO
           </div>
-          <UploadCoursePhoto width="150px" height="100px" />
+          <UploadCoursePhoto
+            width="150px"
+            height="100px"
+            parentCallback={callbackFunction}
+          />
         </div>
         <div className="adminclassroom-createcourse-item-cell">
           <div className="adminclassroom-createcourse-item-cell-label">

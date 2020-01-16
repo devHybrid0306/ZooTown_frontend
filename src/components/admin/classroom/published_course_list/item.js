@@ -1,8 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import "./style.scss";
 
 function PublishedCourseListItem(props) {
+  const handleDisable = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You want to remove this course",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, remove it!"
+    }).then(result => {
+      if (result.value) {
+        Swal.fire("Removed!", "Selected course has been removed.", "success");
+      }
+    });
+  };
+
   return (
     <div className="adminclassroom-publishedcourse-item pl-1 pr-1">
       <div className="adminclassroom-publishedcourse-item-section1">
@@ -24,7 +41,10 @@ function PublishedCourseListItem(props) {
           </div>
         </Link>
 
-        <div className="adminclassroom-publishedcourse-item-section3-btndisable">
+        <div
+          className="adminclassroom-publishedcourse-item-section3-btndisable"
+          onClick={handleDisable}
+        >
           Disable Course
         </div>
       </div>

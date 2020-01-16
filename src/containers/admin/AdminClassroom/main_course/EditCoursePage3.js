@@ -30,17 +30,46 @@ import { FaSearch } from "react-icons/fa";
 import classnames from "classnames";
 import { graphql } from "react-apollo";
 import ImgCheck from "./../../../../assets/membership.png";
-import ImgAdd from "./../../../../assets/addbtn.png";
-import "./style.scss";
 import RadioGroup from "antd/lib/radio/group";
 import { Radio } from "antd";
+import { connect } from "react-redux";
+import NotificationSystem from "react-notification-system";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import "./style.scss";
+
+const desp =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+
+const MySwal = withReactContent(Swal);
+//MySwal.fire("Good job!", "You clicked the button!", "success");
+
+// MySwal.fire({
+//   position: "top-end",
+//   icon: "success",
+//   title: "Your work has been saved",
+//   showConfirmButton: false,
+//   timer: 1500
+// });
+
+// MySwal.fire({
+//   title: <p>Hello World</p>,
+//   footer: "Copyright 2018",
+//   onOpen: () => {
+//     // `MySwal` is a subclass of `Swal`
+//     //   with all the same instance & static methods
+//     MySwal.clickConfirm();
+//   }
+// }).then(() => {
+//   return MySwal.fire(<p>Shorthand works too</p>);
+// });
 
 class AdminEditCoursePage3 extends React.Component {
   constructor(props) {
     console.log(props.page);
     super(props);
     this.state = {
-      selectedOption: 'answer1'
+      selectedOption: "answer1"
     };
 
     this.handleOptionChange = this.handleOptionChange.bind(this);
@@ -48,6 +77,7 @@ class AdminEditCoursePage3 extends React.Component {
     this.handlePassword = this.handlePassword.bind(this);
     this.handleConfirmEmail = this.handleConfirmEmail.bind(this);
     this.handleConfirmPassword = this.handleConfirmPassword.bind(this);
+    this.handleClickCreate = this.handleClickCreate.bind(this);
   }
   handleEmail(e) {
     console.log(e.target.value);
@@ -68,7 +98,21 @@ class AdminEditCoursePage3 extends React.Component {
     });
   }
 
-  
+  notificationSystem = React.createRef();
+
+  addNotification = event => {
+    event.preventDefault();
+    const notification = this.notificationSystem.current;
+    notification.addNotification({
+      message: <h5>Success</h5>,
+      level: "success",
+      children: <h7>Page has been saved!</h7>
+    });
+  };
+
+  handleClickCreate() {
+    Swal.fire("Success!", "You created new course", "success");
+  }
 
   render() {
     const { page } = this.props;
@@ -92,7 +136,7 @@ class AdminEditCoursePage3 extends React.Component {
                   <div className="adminclassroom-coursestate">
                     <div className="adminclassroom-coursestate-listtitle">
                       <Link to="/admin-classroom-publishedcourseworks">
-                        <div className="adminclassroom-coursestate-listtitle-itemon">
+                        <div className="adminclassroom-coursestate-listtitle-itemoff">
                           PUBLISHED COURSEWORKS
                         </div>
                       </Link>
@@ -102,7 +146,7 @@ class AdminEditCoursePage3 extends React.Component {
                         </div>
                       </Link>
                       <Link to="/admin-classroom-createcoursework">
-                        <div className="adminclassroom-published-listtitle-itemoff">
+                        <div className="adminclassroom-published-listtitle-itemon">
                           CREATE A COURSEWORK
                         </div>
                       </Link>
@@ -110,10 +154,13 @@ class AdminEditCoursePage3 extends React.Component {
                     <div className="col mt-3 mb-3">
                       <div>
                         <div className="adminclassroom-editcoursepage-skilltitle">
-                          HTML & CSS
+                          {this.props.courseitem.coursename}
                         </div>
                         <div className="adminclassroom-editcoursepage-savepagebtnContainer">
-                          <div className="adminclassroom-editcoursepage-savepagebtn">
+                          <div
+                            className="adminclassroom-editcoursepage-savepagebtn"
+                            onClick={this.addNotification}
+                          >
                             <img
                               src={ImgCheck}
                               style={{ width: 42, height: 39 }}
@@ -122,6 +169,7 @@ class AdminEditCoursePage3 extends React.Component {
                               SavePage
                             </div>
                           </div>
+                          <NotificationSystem ref={this.notificationSystem} />
                         </div>
                       </div>
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
@@ -129,17 +177,11 @@ class AdminEditCoursePage3 extends React.Component {
                           TITLE ONE
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
-                          This role will play an important role in growing our
-                          international network of content creators. Working
-                          within a small team, you’ll execute on a range of
-                          campaigns that will attract a high calibre of
-                          freelance talent into our Network. You’ll then use
-                          your organisation skills to ensure all applicants are
-                          screened in an efficient yet professional manner. The
-                          right person for this role gets excited about running
-                          large-scale talent attraction campaigns, but also
-                          enjoys directly sourcing and approaching candidates
-                          for specific project briefs.
+                          <textArea
+                            className="adminclassroom-editcoursepage-section2-desp"
+                            placeholder={desp}
+                            maxLength="1000"
+                          ></textArea>
                         </div>
                       </div>
                       <div className="course3-question-section">
@@ -154,24 +196,60 @@ class AdminEditCoursePage3 extends React.Component {
                             Please choose one answer
                           </div>
                           <div>
-                              <RadioGroup>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer1' checked={this.state.selectedOption === 'answer1'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer2' checked={this.state.selectedOption === 'answer2'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer3' checked={this.state.selectedOption === 'answer3'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                <Radio value='answer4' checked={this.state.selectedOption === 'answer4'} onChange={this.handleOptionChange}></Radio>
-                                <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                              </RadioGroup>
+                            <RadioGroup>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer1"
+                                  checked={
+                                    this.state.selectedOption === "answer1"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer2"
+                                  checked={
+                                    this.state.selectedOption === "answer2"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer3"
+                                  checked={
+                                    this.state.selectedOption === "answer3"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer4"
+                                  checked={
+                                    this.state.selectedOption === "answer4"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                            </RadioGroup>
                           </div>
                         </div>
                         <div>
@@ -185,24 +263,60 @@ class AdminEditCoursePage3 extends React.Component {
                             Please choose one answer
                           </div>
                           <div>
-                              <RadioGroup>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer1' checked={this.state.selectedOption === 'answer1'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer2' checked={this.state.selectedOption === 'answer2'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer3' checked={this.state.selectedOption === 'answer3'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                <Radio value='answer4' checked={this.state.selectedOption === 'answer4'} onChange={this.handleOptionChange}></Radio>
-                                <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                              </RadioGroup>
+                            <RadioGroup>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer1"
+                                  checked={
+                                    this.state.selectedOption === "answer1"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer2"
+                                  checked={
+                                    this.state.selectedOption === "answer2"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer3"
+                                  checked={
+                                    this.state.selectedOption === "answer3"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer4"
+                                  checked={
+                                    this.state.selectedOption === "answer4"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                            </RadioGroup>
                           </div>
                         </div>
                         <div>
@@ -216,24 +330,60 @@ class AdminEditCoursePage3 extends React.Component {
                             Please choose one answer
                           </div>
                           <div>
-                              <RadioGroup>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer1' checked={this.state.selectedOption === 'answer1'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer2' checked={this.state.selectedOption === 'answer2'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer3' checked={this.state.selectedOption === 'answer3'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                <Radio value='answer4' checked={this.state.selectedOption === 'answer4'} onChange={this.handleOptionChange}></Radio>
-                                <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                              </RadioGroup>
+                            <RadioGroup>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer1"
+                                  checked={
+                                    this.state.selectedOption === "answer1"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer2"
+                                  checked={
+                                    this.state.selectedOption === "answer2"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer3"
+                                  checked={
+                                    this.state.selectedOption === "answer3"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer4"
+                                  checked={
+                                    this.state.selectedOption === "answer4"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                            </RadioGroup>
                           </div>
                         </div>
                         <div>
@@ -247,24 +397,60 @@ class AdminEditCoursePage3 extends React.Component {
                             Please choose one answer
                           </div>
                           <div>
-                              <RadioGroup>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer1' checked={this.state.selectedOption === 'answer1'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer2' checked={this.state.selectedOption === 'answer2'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                  <Radio value='answer3' checked={this.state.selectedOption === 'answer3'} onChange={this.handleOptionChange}></Radio>
-                                  <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                                <div className="course3-question-section-answer">
-                                <Radio value='answer4' checked={this.state.selectedOption === 'answer4'} onChange={this.handleOptionChange}></Radio>
-                                <label className="pl-3">How many people have been apart of this project?</label>
-                                </div>
-                              </RadioGroup>
+                            <RadioGroup>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer1"
+                                  checked={
+                                    this.state.selectedOption === "answer1"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer2"
+                                  checked={
+                                    this.state.selectedOption === "answer2"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer3"
+                                  checked={
+                                    this.state.selectedOption === "answer3"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                              <div className="course3-question-section-answer">
+                                <Radio
+                                  value="answer4"
+                                  checked={
+                                    this.state.selectedOption === "answer4"
+                                  }
+                                  onChange={this.handleOptionChange}
+                                ></Radio>
+                                <label className="pl-3">
+                                  How many people have been apart of this
+                                  project?
+                                </label>
+                              </div>
+                            </RadioGroup>
                           </div>
                         </div>
                       </div>
@@ -275,8 +461,11 @@ class AdminEditCoursePage3 extends React.Component {
                           PREV
                         </div>
                       </Link>
-                      <div className="adminclassroom-editcoursepage-nextbtn">
-                        NEXT
+                      <div
+                        className="adminclassroom-editcoursepage-nextbtn"
+                        onClick={this.handleClickCreate}
+                      >
+                        Create
                       </div>
                     </div>
                   </div>
@@ -291,4 +480,8 @@ class AdminEditCoursePage3 extends React.Component {
   }
 }
 
-export default AdminEditCoursePage3;
+const mapStateToProps = state => ({
+  courseitem: state.course.item
+});
+
+export default connect(mapStateToProps, {})(AdminEditCoursePage3);

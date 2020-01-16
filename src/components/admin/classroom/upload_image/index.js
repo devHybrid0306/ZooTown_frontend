@@ -16,6 +16,10 @@ export class UploadPreview extends Component {
         ? URL.createObjectURL(event.target.files[0])
         : this.state.file
     });
+
+    this.props.parentCallback(
+      window.URL.createObjectURL(event.target.files[0])
+    );
   }
 
   render() {

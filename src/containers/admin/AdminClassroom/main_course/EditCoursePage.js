@@ -31,11 +31,9 @@ import classnames from "classnames";
 import { graphql } from "react-apollo";
 import ImgCheck from "./../../../../assets/membership.png";
 import ImgAdd from "./../../../../assets/addbtn.png";
-import "./style.scss";
-import TextArea from "antd/lib/input/TextArea";
-import { Icon } from "antd";
 import { connect } from "react-redux";
 import NotificationSystem from "react-notification-system";
+import "./style.scss";
 
 const desp =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
@@ -117,7 +115,7 @@ class AdminEditCoursePage extends React.Component {
                   <div className="adminclassroom-coursestate">
                     <div className="adminclassroom-coursestate-listtitle">
                       <Link to="/admin-classroom-publishedcourseworks">
-                        <div className="adminclassroom-coursestate-listtitle-itemon">
+                        <div className="adminclassroom-coursestate-listtitle-itemoff">
                           PUBLISHED COURSEWORKS
                         </div>
                       </Link>
@@ -127,7 +125,7 @@ class AdminEditCoursePage extends React.Component {
                         </div>
                       </Link>
                       <Link to="/admin-classroom-createcoursework">
-                        <div className="adminclassroom-published-listtitle-itemoff">
+                        <div className="adminclassroom-published-listtitle-itemon">
                           CREATE A COURSEWORK
                         </div>
                       </Link>
