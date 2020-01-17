@@ -33,6 +33,7 @@ import ImgCheck from "./../../../../assets/membership.png";
 import ImgAdd from "./../../../../assets/addbtn.png";
 import { connect } from "react-redux";
 import NotificationSystem from "react-notification-system";
+import { newCourse } from "./../../../../actions/course";
 import "./style.scss";
 
 const desp =
@@ -44,8 +45,15 @@ class AdminEditCoursePage extends React.Component {
     super(props);
 
     this.state = {
-      file: ""
+      file: "",
+      title1_1: "",
+      desp1_1: "",
+      title1_2: "",
+      desp1_2: "",
+      title1_3: "",
+      desp1_3: ""
     };
+
     this.myInput = React.createRef();
     this.handleChange = this.handleChange.bind(this);
 
@@ -91,7 +99,18 @@ class AdminEditCoursePage extends React.Component {
       level: "success",
       children: <h7>Page has been saved!</h7>
     });
+
+    const { dispatch } = this.props;
+
+    dispatch(
+      newCourse({ title_1: this.state.title1_1, desp_1: this.state.desp1_1 })
+    );
   };
+
+  // handleSubmit = e => {
+  //   const { dispatch } = this.props;
+  //   dispatch(newCourse(this.state.desp1_1));
+  // };
 
   render() {
     const { page } = this.props;
@@ -189,10 +208,14 @@ class AdminEditCoursePage extends React.Component {
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
                         <div className="adminclassroom-editcoursepage-section2-title">
                           <input
-                            type="text"
+                            type="type"
                             className="adminclassroom-editcoursepage-section2-title"
                             placeholder="Title1"
                             maxLength="50"
+                            value={this.state.title1_1}
+                            onChange={e =>
+                              this.setState({ title1_1: e.target.value })
+                            }
                           />
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
@@ -200,6 +223,10 @@ class AdminEditCoursePage extends React.Component {
                             className="adminclassroom-editcoursepage-section2-desp"
                             placeholder={desp}
                             maxLength="1000"
+                            value={this.state.desp1_1}
+                            onChange={e =>
+                              this.setState({ desp1_1: e.target.value })
+                            }
                           ></textarea>
                         </div>
                       </div>
@@ -263,5 +290,13 @@ class AdminEditCoursePage extends React.Component {
 const mapStateToProps = state => ({
   courseitem: state.course.item
 });
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatch
+  };
+};
 
-export default connect(mapStateToProps, {})(AdminEditCoursePage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AdminEditCoursePage);

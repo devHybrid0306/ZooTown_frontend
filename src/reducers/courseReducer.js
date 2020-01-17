@@ -8,7 +8,12 @@ const course = (state = initialState, action) => {
     case "CREATE_COURSE":
       return {
         ...state,
-        item: action.payload
+        item: { ...state.item, ...action.payload }
+      };
+    case "ADD_COURSE":
+      return {
+        ...state,
+        items: [...state.item, action.payload]
       };
     default:
       return state;
