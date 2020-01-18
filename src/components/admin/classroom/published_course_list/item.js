@@ -4,15 +4,24 @@ import Swal from "sweetalert2";
 import "./style.scss";
 
 function PublishedCourseListItem(props) {
+  
   const handleDisable = () => {
     Swal.fire({
       title: "Are you sure?",
       text: "You want to remove this course",
       icon: "warning",
+      allowOutsideClick: false,
+      showConfirmButton: true,
+      closeOnConfirm: true,
+      closeOnCancel: true,
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, remove it!"
+      confirmButtonText: 'OK',
+      // confirmButtonColor: '#3085d6',
+      cancelButtonText: 'Cancel',
+      //cancelButtonColor: '#d33',
+      confirmButtonText: "Yes, remove it!",    
+      allowEscapeKey: true,
+      showLoaderOnConfirm: false
     }).then(result => {
       if (result.value) {
         Swal.fire("Removed!", "Selected course has been removed.", "success");
