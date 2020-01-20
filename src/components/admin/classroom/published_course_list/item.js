@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import "./style.scss";
 
 function PublishedCourseListItem(props) {
-  
   const handleDisable = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -15,11 +14,11 @@ function PublishedCourseListItem(props) {
       closeOnConfirm: true,
       closeOnCancel: true,
       showCancelButton: true,
-      confirmButtonText: 'OK',
+      confirmButtonText: "OK",
       // confirmButtonColor: '#3085d6',
-      cancelButtonText: 'Cancel',
+      cancelButtonText: "Cancel",
       //cancelButtonColor: '#d33',
-      confirmButtonText: "Yes, remove it!",    
+      confirmButtonText: "Yes, remove it!",
       allowEscapeKey: true,
       showLoaderOnConfirm: false
     }).then(result => {

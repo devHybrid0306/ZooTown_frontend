@@ -33,7 +33,7 @@ import ImgCheck from "./../../../../assets/membership.png";
 import ImgAdd from "./../../../../assets/addbtn.png";
 import { connect } from "react-redux";
 import NotificationSystem from "react-notification-system";
-
+import { newCourse } from "./../../../../actions/course";
 import "./style.scss";
 
 const desp =

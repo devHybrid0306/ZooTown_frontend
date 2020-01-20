@@ -103,7 +103,14 @@ class AdminEditCoursePage extends React.Component {
     const { dispatch } = this.props;
 
     dispatch(
-      newCourse({ title_1: this.state.title1_1, desp_1: this.state.desp1_1 })
+      newCourse({
+        title_1: this.state.title1_1,
+        desp_1: this.state.desp1_1,
+        title1_2: this.state.title1_2,
+        desp1_2: this.state.desp1_2,
+        title1_3: this.state.title1_3,
+        desp1_3: this.state.desp1_3
+      })
     );
   };
 
@@ -237,6 +244,10 @@ class AdminEditCoursePage extends React.Component {
                             className="adminclassroom-editcoursepage-section2-title"
                             placeholder="Title2"
                             maxLength="50"
+                            value={this.state.title1_2}
+                            onChange={e =>
+                              this.setState({ title1_2: e.target.value })
+                            }
                           />
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
@@ -244,6 +255,10 @@ class AdminEditCoursePage extends React.Component {
                             className="adminclassroom-editcoursepage-section2-desp"
                             placeholder={desp}
                             maxLength="1000"
+                            value={this.state.desp1_2}
+                            onChange={e =>
+                              this.setState({ desp1_2: e.target.value })
+                            }
                           ></textarea>
                         </div>
                       </div>
@@ -254,6 +269,10 @@ class AdminEditCoursePage extends React.Component {
                             className="adminclassroom-editcoursepage-section2-title"
                             placeholder="Title3"
                             maxLength="50"
+                            value={this.state.title1_3}
+                            onChange={e =>
+                              this.setState({ title1_3: e.target.value })
+                            }
                           />
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
@@ -261,6 +280,10 @@ class AdminEditCoursePage extends React.Component {
                             className="adminclassroom-editcoursepage-section2-desp"
                             placeholder={desp}
                             maxLength="1000"
+                            value={this.state.desp1_3}
+                            onChange={e =>
+                              this.setState({ desp1_3: e.target.value })
+                            }
                           ></textarea>
                         </div>
                       </div>
