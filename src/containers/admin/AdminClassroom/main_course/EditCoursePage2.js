@@ -36,6 +36,10 @@ import NotificationSystem from "react-notification-system";
 import { newCourse } from "./../../../../actions/course";
 import "./style.scss";
 
+/////////////
+import {storage} from "../../../../firebase";
+/////////////
+
 const desp =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 
@@ -44,8 +48,18 @@ class AdminEditCoursePage2 extends React.Component {
     console.log(props.page);
     super(props);
     this.state = {
-      file: ""
+      title2_1: this.props.courseitem.title2_1,
+      desp2_1: this.props.courseitem.desp2_1,
+      title2_2: this.props.courseitem.title2_2,
+      desp2_2: this.props.courseitem.desp2_2,
+      title2_3: this.props.courseitem.title2_3,
+      desp2_3: this.props.courseitem.desp2_3,
+      image: null,
+      url: this.props.courseitem.imgurl,
+      showMe: this.props.courseitem.showMe2
     };
+
+    this.myInput = React.createRef();
     this.handleChange = this.handleChange.bind(this);
 
     this.handleEmail = this.handleEmail.bind(this);
@@ -67,13 +81,19 @@ class AdminEditCoursePage2 extends React.Component {
   }
 
   handleChange(event) {
+     ////////////////////////////////
+     if(event.target.files[0])
+     {
+       const image = event.target.files[0];
+       this.setState(() => ({image}));
+     }
+     ////////////////////////////////
     this.setState({
-      file: event.target.files[0]
+      url: event.target.files[0]
         ? URL.createObjectURL(event.target.files[0])
-        : this.state.file
+        : this.state.url
     });
-    document.getElementById("uploadPhoto").style.visibility = "visible";
-    document.getElementById("label").style.visibility = "hidden";
+    this.setState({showMe:true})
   }
 
   triggerClick = () => {
@@ -90,7 +110,44 @@ class AdminEditCoursePage2 extends React.Component {
       level: "success",
       children: <h7>Page has been saved!</h7>
     });
+
+    ////////////////////////////////
+    const {image} = this.state;
+    if(image)
+    {
+      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      uploadTask.on('state_changed', 
+        (snapshot) => {
+      
+        }, 
+        (error) => {
+          console.log(error);
+        }, 
+        () => {
+          storage.ref('images').child(image.name).getDownloadURL().then(url => {
+            this.state.url = url;
+            console.log(url);
+          })
+      });
+    }
+    
+    const { dispatch } = this.props;
+
+    dispatch(
+      newCourse({
+        title2_1: this.state.title2_1,
+        desp2_1: this.state.desp2_1,
+        title2_2: this.state.title2_2,
+        desp2_2: this.state.desp2_2,
+        title2_3: this.state.title2_3,
+        desp2_3: this.state.desp2_3,
+        imgurl: this.state.url,
+        showMe2: this.state.showMe
+      })
+    );
+    ////////////////////////////////
   };
+  
 
   render() {
     const { page } = this.props;
@@ -155,16 +212,24 @@ class AdminEditCoursePage2 extends React.Component {
                           <input
                             type="text"
                             className="adminclassroom-editcoursepage-section2-title"
-                            placeholder="Title3"
+                            placeholder="Title1"
                             maxLength="50"
+                            value={this.state.title2_1}
+                            onChange={e =>
+                              this.setState({ title2_1: e.target.value})
+                            }
                           />
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
-                          <textArea
+                          <textarea
                             className="adminclassroom-editcoursepage-section2-desp"
                             placeholder={desp}
                             maxLength="1000"
-                          ></textArea>
+                            value={this.state.desp2_1}
+                            onChange={e =>
+                              this.setState({ desp2_1: e.target.value})
+                            }
+                          ></textarea>
                         </div>
                       </div>
                       <div className="adminclassroom-editcoursepage-section1 mt-5">
@@ -183,22 +248,27 @@ class AdminEditCoursePage2 extends React.Component {
                               />
                             }
                           </div>
-                          <div
+                          {
+                            this.state.showMe? null :
+                            <div
                             className="adminclassroom-editcoursepage-section1-upload-label ml-3"
                             id="label"
-                          >
-                            Upload Photo
-                          </div>
-                          <img
-                            className="adminclassroom-editcoursepage-section1-upload-video"
-                            src={this.state.file}
-                            id="uploadPhoto"
-                            style={{
-                              visibility: "hidden",
-                              width: "1000px",
-                              height: "400px"
-                            }}
-                          />
+                            >
+                              Upload Image
+                            </div>
+                          }
+                          {
+                            this.state.showMe?
+                            <img
+                              className="adminclassroom-editcoursepage-section1-upload-video"
+                              src={this.state.url}
+                              id="uploadPhoto"
+                              style={{
+                                width: "800px",
+                                height: "400px"
+                              }}
+                            /> : null
+                          }
                         </div>
                       </div>
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
@@ -206,16 +276,24 @@ class AdminEditCoursePage2 extends React.Component {
                           <input
                             type="text"
                             className="adminclassroom-editcoursepage-section2-title"
-                            placeholder="Title1"
+                            placeholder="Title2"
                             maxLength="50"
+                            value={this.state.title2_2}
+                            onChange={e =>
+                              this.setState({ title2_2: e.target.value})
+                            }
                           />
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
-                          <textArea
+                          <textarea
                             className="adminclassroom-editcoursepage-section2-desp"
                             placeholder={desp}
                             maxLength="1000"
-                          ></textArea>
+                            value={this.state.desp2_2}
+                            onChange={e =>
+                              this.setState({ desp2_2: e.target.value})
+                            }
+                          ></textarea>
                         </div>
                       </div>
                       <div className="adminclassroom-editcoursepage-section2 mt-5">
@@ -223,16 +301,24 @@ class AdminEditCoursePage2 extends React.Component {
                           <input
                             type="text"
                             className="adminclassroom-editcoursepage-section2-title"
-                            placeholder="Title1"
+                            placeholder="Title3"
                             maxLength="50"
+                            value={this.state.title2_3}
+                            onChange={e =>
+                              this.setState({ title2_3: e.target.value})
+                            }
                           />
                         </div>
                         <div className="adminclassroom-editcoursepage-section2-desp mt-5">
-                          <textArea
+                          <textarea
                             className="adminclassroom-editcoursepage-section2-desp"
                             placeholder={desp}
                             maxLength="1000"
-                          ></textArea>
+                            value={this.state.desp2_3}
+                            onChange={e =>
+                              this.setState({ desp2_3: e.target.value})
+                            }
+                          ></textarea>
                         </div>
                       </div>
                     </div>
@@ -263,5 +349,13 @@ class AdminEditCoursePage2 extends React.Component {
 const mapStateToProps = state => ({
   courseitem: state.course.item
 });
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatch
+  };
+};
 
-export default connect(mapStateToProps, {})(AdminEditCoursePage2);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AdminEditCoursePage2);
